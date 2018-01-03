@@ -155,7 +155,7 @@ const run = async (domain) => {
     await page.click('.dao-left-nav .dao-left-nav-section:nth-child(4) .dao-left-nav-group:nth-child(2) .dao-left-nav-ul-title')
     await waitAppList();
     await getDomData(page);
-    console.log(`查看应用列表 ${(+new Date()) - now}`);
+    console.log(`查看应用列表 ${(+new Date()) - now}ms`);
     now = +new Date();
 
     // await page.click('#app .app-list .dao-table tbody tr:first-child .name .item-logo-text .item-major a');
@@ -170,6 +170,7 @@ const run = async (domain) => {
 
     console.log(times);
     console.log(dom);
+    console.log(cal.calcXhrs(xhrs));
     // console.log(timing);
     // console.log(network);
 

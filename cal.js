@@ -1,5 +1,15 @@
 const _ = require('lodash');
 
+const calcXhrs = (xhrs) => {
+  const _xhrs = {};
+  _.forEach(xhrs, (v, k) => {
+    const { begin, end } = v;
+    _xhrs[k] = `${end - begin}ms`;
+  });
+
+  return _xhrs;
+}
+
 const getAvarageDuration = (ns) => {
   const all = ns.reduce((sum, value) => {
     return sum + value.duration;
@@ -48,6 +58,7 @@ const getXhrsTime = (xhrs) => {
 }
 
 module.exports = {
+  calcXhrs,
   getAvaReq,
   getAvaXhrReq,
   getAvaSourceReq,
